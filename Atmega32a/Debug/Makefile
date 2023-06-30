@@ -39,7 +39,10 @@ SUBDIRS :=  \
 ../LIBS \
 ../MCAL/DIO \
 ../MCAL/EXTI \
-../MCAL/ADC
+../MCAL/ADC \
+../MCAL/GIE \
+../MCAL/TIMERS \
+../MCAL/TIMERS/TIMER0
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -47,7 +50,8 @@ C_SRCS +=  \
 ../APP/main.c \
 ../MCAL/ADC/ADC.c \
 ../MCAL/DIO/DIO.c \
-../MCAL/EXTI/EXTI.c
+../MCAL/EXTI/EXTI.c \
+../MCAL/GIE/GIE.c
 
 
 PREPROCESSING_SRCS += 
@@ -60,25 +64,29 @@ OBJS +=  \
 APP/main.o \
 MCAL/ADC/ADC.o \
 MCAL/DIO/DIO.o \
-MCAL/EXTI/EXTI.o
+MCAL/EXTI/EXTI.o \
+MCAL/GIE/GIE.o
 
 OBJS_AS_ARGS +=  \
 APP/main.o \
 MCAL/ADC/ADC.o \
 MCAL/DIO/DIO.o \
-MCAL/EXTI/EXTI.o
+MCAL/EXTI/EXTI.o \
+MCAL/GIE/GIE.o
 
 C_DEPS +=  \
 APP/main.d \
 MCAL/ADC/ADC.d \
 MCAL/DIO/DIO.d \
-MCAL/EXTI/EXTI.d
+MCAL/EXTI/EXTI.d \
+MCAL/GIE/GIE.d
 
 C_DEPS_AS_ARGS +=  \
 APP/main.d \
 MCAL/ADC/ADC.d \
 MCAL/DIO/DIO.d \
-MCAL/EXTI/EXTI.d
+MCAL/EXTI/EXTI.d \
+MCAL/GIE/GIE.d
 
 OUTPUT_FILE_PATH +=Atmega32a.elf
 
@@ -116,6 +124,13 @@ MCAL/DIO/DIO.o: ../MCAL/DIO/DIO.c
 	
 
 MCAL/EXTI/EXTI.o: ../MCAL/EXTI/EXTI.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/GIE/GIE.o: ../MCAL/GIE/GIE.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

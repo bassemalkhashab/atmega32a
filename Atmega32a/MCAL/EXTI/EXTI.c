@@ -10,13 +10,7 @@ void (*FUNC_PTR_INT0)(void) = NULL;
 void (*FUNC_PTR_INT1)(void) = NULL;
 void (*FUNC_PTR_INT2)(void) = NULL;
 
-void GLOBAL_INT_ENABLE(){
-	SETBIT(SREG, I);
-}
 
-void GLOBAL_INT_DISABLE(){
-	CLEARBIT(SREG, I);
-}
 
 void INT0_INIT(SENSE_CONTROL ISC){
 	SETBIT(GICR,INT0);

@@ -10,7 +10,7 @@
 #define EXTI_REG_H_
 
 
-#define SREG (*((volatile u8 *) (0x5F)))
+
 #define GICR (*((volatile u8 *) (0x5B)))
 #define GIFR (*((volatile u8 *) (0x5A)))
 #define MCUCR (*((volatile u8 *) (0x55)))

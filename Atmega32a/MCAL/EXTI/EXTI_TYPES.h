@@ -20,7 +20,7 @@
 
 #define ISC2 6
 
-#define I 7
+
 
 typedef enum{
 	LOW_LEVEL,
