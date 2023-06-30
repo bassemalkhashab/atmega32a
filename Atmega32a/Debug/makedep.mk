@@ -4,6 +4,8 @@
 
 APP\main.c
 
+MCAL\ADC\ADC.c
+
 MCAL\DIO\DIO.c
 
 MCAL\EXTI\EXTI.c

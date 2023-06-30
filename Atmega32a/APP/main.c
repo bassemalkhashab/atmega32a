@@ -24,7 +24,7 @@ void ISR_INT0(){
 	}
 }
 
-void ISR_INT2(){
+void ISR_INT1(){
 	for (int i=0;i<5;i++)
 	{
 		setPinValue(PORTD,PIN6,LOW);
@@ -40,7 +40,7 @@ void ISR_INT2(){
 int main(void) {
 	// Initialize the interrupt
 	INT0_INIT(FALLING_EDGE);
-	INT2_INIT(FALLING_EDGE);
+	INT1_INIT(FALLING_EDGE);
 
 	// Enable global interrupts
 	GLOBAL_INT_ENABLE();
@@ -50,8 +50,8 @@ int main(void) {
 	setPinDirection(PORTD,PIN5,OUTPUT);
 	setPinDirection(PORTD,PIN2,INPUT);
 	setPinValue(PORTD,PIN2,HIGH);
-	setPinDirection(PORTB,PIN2,INPUT);
-	setPinValue(PORTB,PIN2,HIGH);
+	setPinDirection(PORTD,PIN3,INPUT);
+	setPinValue(PORTD,PIN3,HIGH);
 
 	while (1) {
 		setPinValue(PORTD,PIN5,LOW);
