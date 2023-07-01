@@ -1,0 +1,19 @@
+/*
+ * TIMER.h
+ *
+ * Created: 7/1/2023 5:00:54 PM
+ *  Author: iot05
+ */ 
+
+
+#ifndef TIMER_H_
+#define TIMER_H_
+
+#include "TIMER0_INCLUDES.h"
+
+void SET_TIMER0_MODE(TIMER_MODE WGM);
+void SET_WAVE_MODE(WAVE_MODE COM);
+void SET_WAVE_MODE_NON_PWM(WAVE_MODE_NON_PWM COM);
+void SET_PRESCALLER_MODE(PRESCALLER_MODE CS);
+
+#endif /* TIMER_H_ */

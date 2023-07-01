@@ -1,0 +1,56 @@
+/*
+ * TIMER0_TYPES.h
+ *
+ * Created: 7/1/2023 5:04:33 PM
+ *  Author: iot05
+ */ 
+
+
+#ifndef TIMER0_TYPES_H_
+#define TIMER0_TYPES_H_
+
+
+typedef enum{
+	CS00,
+	CS01,
+	CS02,
+	WGM01,
+	COM00,
+	COM01,
+	WGM00,
+	FOC0
+	}TCCR1;
+
+typedef enum{
+	NORMAL,
+	CTC,
+	PHASE_CORRECT,
+	FAST_PWM
+}TIMER_MODE;
+
+typedef enum{
+	DISCONNECTED,
+	RESERVED,
+	NON_INVERTING,
+	INVERTING
+}WAVE_MODE;
+
+typedef enum{
+	//DISCONNECTED
+	TOGGLE=1,
+	CLEAR,
+	SET
+}WAVE_MODE_NON_PWM;
+
+typedef enum{
+	STOPPED,
+	NO_PRESCALLING,
+	CLK_8,
+	CLK_64,
+	CLK_256,
+	CLK_1024,
+	EXT_CLK_FALLING_EDGE,
+	EXT_CLK_RISING_EDGE
+}PRESCALLER_MODE;
+
+#endif /* TIMER0_TYPES_H_ */

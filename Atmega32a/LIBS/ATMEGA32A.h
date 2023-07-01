@@ -9,11 +9,12 @@
 #ifndef HASH_INCLUDES_H_
 #define HASH_INCLUDES_H_
 
-//#define F_CPU 8000000UL
+#define F_CPU 8000000UL
 
 //#include <avr/interrupt.h>
 #include "../MCAL/DIO/DIO.h"
 #include "../MCAL/EXTI/EXTI.h"
+#include "../MCAL/TIMER0/TIMER0.h"
 #include <util/delay.h>
 
 

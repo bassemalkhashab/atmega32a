@@ -10,55 +10,31 @@
 #include "../LIBS/BIT_MATH.h"
 
 
-
-//void ISR_INT0(){
-	//for (int i=0;i<5;i++)
-	//{
-	//
-	//setPinValue(PORTD,PIN6,HIGH);
-	//setPinValue(PORTD,PIN5,LOW);
-	//_delay_ms(250);
-	//setPinValue(PORTD,PIN6,LOW);
-	//setPinValue(PORTD,PIN5,LOW);
-	//_delay_ms(250);
-	//}
-//}
-//
-//void ISR_INT1(){
-	//for (int i=0;i<5;i++)
-	//{
-		//setPinValue(PORTD,PIN6,LOW);
-		//setPinValue(PORTD,PIN5,HIGH);
-		//_delay_ms(250);
-		//setPinValue(PORTD,PIN6,LOW);
-		//setPinValue(PORTD,PIN5,LOW);
-		//_delay_ms(250);
-	//}
-//}
+void PWM_init()
+{
+	/*set fast PWM mode with non-inverted output*/
+	SET_TIMER0_MODE(FAST_PWM);
+	SET_WAVE_MODE(NON_INVERTING);
+	SET_PRESCALLER_MODE(NO_PRESCALLING);
+	setPinDirection(PORTB,PIN3,OUTPUT);  /*set OC0 pin as output*/
+}
 
 // Main function
 int main(void) {
-	//// Initialize the interrupt
-	//INT0_INIT(FALLING_EDGE);
-	//INT1_INIT(FALLING_EDGE);
-//
-	//// Enable global interrupts
-	//GLOBAL_INT_ENABLE();
-	// Do other stuff here...
+	unsigned char duty;
 	
-	//setPinDirection(PORTD,PIN6,OUTPUT);
-	//setPinDirection(PORTD,PIN5,OUTPUT);
-	//setPinDirection(PORTD,PIN2,INPUT);
-	//setPinValue(PORTD,PIN2,HIGH);
-	//setPinDirection(PORTD,PIN3,INPUT);
-	//setPinValue(PORTD,PIN3,HIGH);
-
+	PWM_init();
+	//setPinValue(PORTB,PIN3,HIGH);
 	while (1) {
-		//setPinValue(PORTD,PIN5,LOW);
-		//setPinValue(PORTD,PIN6,HIGH);
-		//_delay_ms(1000);
-		//setPinValue(PORTD,PIN6,LOW);
-		//setPinValue(PORTD,PIN5,HIGH);
-		//_delay_ms(1000);
+		for(duty=0; duty<255; duty++)
+		{
+			OCR0=duty;  /*increase the LED light intensity*/		
+			_delay_ms(1);
+		}
+		for(duty=255; duty>1; duty--)
+		{
+			OCR0=duty;  /*decrease the LED light intensity*/
+			_delay_ms(1);
+		}
 	}
 }

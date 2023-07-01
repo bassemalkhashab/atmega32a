@@ -196,6 +196,21 @@
     <Compile Include="MCAL\GIE\GIE_TYPES.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\TIMER0\TIMER0.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER0\TIMER0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER0\TIMER0_INCLUDES.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER0\TIMER0_REG.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER0\TIMER0_TYPES.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HAL" />
@@ -206,8 +221,7 @@
     <Folder Include="MCAL\EXTI" />
     <Folder Include="MCAL\ADC" />
     <Folder Include="MCAL\GIE" />
-    <Folder Include="MCAL\TIMERS" />
-    <Folder Include="MCAL\TIMERS\TIMER0" />
+    <Folder Include="MCAL\TIMER0" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
